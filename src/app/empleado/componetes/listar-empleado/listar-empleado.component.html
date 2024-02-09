@@ -1,0 +1,76 @@
+<!--<div class="card" style="background-color: red;width: 500px; margin: auto; ">
+  <div *ngFor="let item of listadoEmpleadoResponseDto" class="infoPersonaje"style=" height: 100px;
+  background:yellow" >
+
+
+    <div><img src="http://localhost:5144/api/Imagen/0835e7a4-9182-4c7a-8aa1-66b396cd715f.PNG" alt="" class="imagen"></div>
+    <div>
+
+      <strong>Nombre: </strong>
+      <label for="">{{item.nombre}}</label><br>
+      <strong>Cedula: </strong>
+      <label for="">{{item.cedula}}</label><br>
+
+      <strong>Fecha de ingreso: </strong>
+      <label for="">{{item.fechaIngreso}}</label><br>
+      <button   >Añadir a mis favoritos</button>
+
+
+
+    </div>
+    <br>
+  </div>
+</div>-->
+
+<!---->
+<div id="managerTask">
+  <h1 class="title" >LISTA DE EMPLEADOS</h1>
+
+
+  <div class="scroll"  >
+
+    <div *ngFor="let item of listadoEmpleadoResponseDto" class="infoPersonaje ">
+      <div>
+        <img src="{{urlImagen}}{{item.foto}}" alt="" class="imagen" />
+      </div>
+
+      <div>
+        <strong>Nombre: </strong>
+        <label for="">{{item.nombre}}</label><br>
+        <strong>Cedula: </strong>
+        <label for="">{{item.cedula}}</label><br>
+
+        <strong>Cargo: </strong>
+        <label for="">{{item.cargo.nombre}}</label><br>
+
+
+        <strong>Fecha de ingreso: </strong>
+        <label for="">{{item.fechaIngreso}}</label><br>
+
+        <div style="display: inline-flex; margin: auto;">
+          <button (click)="eliminarEmpleado(item.id);"   class="cerrar" style="display: inline-flex;" mat-button >	<mat-icon>delete_outline</mat-icon></button>
+          <button  style="display: inline-flex;"class="save" mat-button ><mat-icon>edit</mat-icon></button>
+
+        </div>
+
+      </div>
+
+
+
+
+
+          <!--<div style="display: inline-flex; margin: auto;">
+            <button (click)="delete(item.track.uri)" class="cerrar" style="display: inline-flex;" mat-button [mat-dialog-close]="true">	<mat-icon>cancel</mat-icon><h3>Borrar</h3></button>
+            <button  style="display: inline-flex;"class="save" mat-button (click)="openDialog(item.track.preview_url,item.track.name,item.track.album.name,item.track.album.images[0].url)"><mat-icon>visibility</mat-icon><h3>Ver</h3></button>
+
+          </div>-->
+
+
+
+
+
+    </div>
+  </div>
+
+
+</div>

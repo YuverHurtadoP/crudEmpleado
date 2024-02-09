@@ -1,0 +1,44 @@
+.mat-toolbar.mat-primary{
+  position: fixed !important;
+  top: 0px !important;
+  margin-bottom: 10% !important;
+}
+
+
+.mat-toolbar.mat-primary {
+    background: #207cca !important;
+    color: #fff;
+}
+button {
+  display: block;
+
+  width: 150px;
+  height: 30px;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-weight: 500;
+ border: solid 1px white;
+ padding: auto;
+ font-size: 13px;
+
+  background: #207cca;
+
+cursor: pointer;
+}
+
+button:hover{
+  display: block;
+
+
+  color: #207cca;
+
+ font-size: 13px;
+
+  background: white;
+
+cursor: pointer;
+}
+p{
+  transform: translateY(-2px);
+}

@@ -1,0 +1,131 @@
+#managerTask{
+
+
+
+  overflow: none !important;
+  display: grid;
+  place-items: center;
+  height: 100% !important;
+  width: 100% !important;
+
+}
+.infoPersonaje{
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  margin-left: 15px;
+  padding-left: 30px;
+  padding-top: 30px;
+
+
+
+}
+.infoPersonaje .imagen{
+  width: 100px;
+ height:  100px;
+ border-radius: 50%;
+}
+.button-delete {
+
+  color:red;
+  background-color: transparent !important;
+  border-radius: 0.5em;
+  border:solid 1px red;
+  cursor: pointer;
+
+}
+
+.button-edit {
+
+  color:green;
+  background-color: transparent !important;
+  border-radius: 0.5em;
+  border:solid 1px green;
+  cursor: pointer;
+  margin-left: 1px;
+
+}
+
+.button-delete:hover {
+
+  color:#207cca;
+  border-radius: 0.5em;
+  border:solid 1px #207cca;
+  cursor: pointer;
+
+}
+.button-edit:hover {
+
+  color:#207cca;
+  border-radius: 0.5em;
+  border:solid 1px #207cca;
+  cursor: pointer;
+
+}
+.title{
+
+  margin-top: 0px !important;
+  padding-top: 25px !important;
+  font-weight: 600;
+text-align: center;
+}
+.input {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 300px;
+  border: solid 1px #207cca ;
+  border-radius: 0.5em;
+  background-color: #f3f3f3;
+}
+.search{
+  color: #207cca;
+  background-color: white;
+  border-radius:0.5em;
+  border: solid 1px #207cca;
+  cursor: pointer;
+
+}
+
+strong{
+  color: #207cca;
+}
+.scroll{
+  overflow-y:scroll;
+  max-height: 370px;
+  border-radius: 1.5em;
+  border: solid 1px #207cca;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  width: 500px !important;
+
+
+}
+
+.scroll::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: white;        /* color of the tracking area */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #207cca;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid white;  /* creates padding around scroll thumb */
+}
+.save {
+
+  color:  #207cca;
+  border:none;
+  margin-left: 3px;
+  background-color: white;
+  cursor: pointer;
+
+
+}
+.cerrar {
+  border: none;
+  color:  red;
+  background-color: white;
+  cursor: pointer;
+}

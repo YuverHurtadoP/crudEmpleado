@@ -1,0 +1,70 @@
+
+ <div class="mat-dialog-container">
+  <div class="card">
+    <div class="card-header   text-white text-center" >
+      <h4 class="mb-0">
+        <mat-icon style="color: white; font-size: 2rem;">how_to_reg</mat-icon> Formulario de Registro
+      </h4>
+    </div>
+    <div class="card-body">
+
+      <form   [formGroup]="formulario" (ngSubmit)="guardar()"  >
+        <div class="columnDivision "  >
+          <!--column 1-->
+          <div class="spaceBottom">
+            <select formControlName="cargo" class="form-select" aria-label="Default select example">
+              <option value="">Cargo</option>
+              <option value="1">Tipo documento</option>
+              <!--<option *ngFor="let item of listdocumentTypeDto" [value]="item.documentTypeId">
+                {{item.description}}
+              </option>-->
+            </select>
+            <div class="error" *ngIf="formulario.get('cargo')?.touched && formulario.get('cargo')?.hasError?.('havespace')">{{msg}}</div>
+        </div>
+         <!--column 2-->
+
+          <div class="spaceBottom">
+            <input type="text" formControlName="cedula" class="form-control" id="document" placeholder="Nro. Documento" name="document" >
+            <div class="error" *ngIf="formulario.get('cedula')?.touched && formulario.get('cedula')?.hasError?.('havespace')">{{msg}}</div>
+            <div class="error" *ngIf="formulario.get('cedula')?.touched && formulario.get('cedula')?.hasError?.('pattern')">{{msg2}}</div>
+
+          </div>
+        </div>
+
+
+
+        <div class="columnDivision"  >
+          <!--column 1-->
+          <div class="spaceBottom">
+            <input type="text" formControlName="nombre" class="form-control" id="name" placeholder="Nombres" name="name" required>
+            <div class="error" *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.hasError?.('havespace')">{{msg}}</div>
+
+        </div>
+         <!--column 2-->
+
+          <div class=" spaceBottom">
+            <input type="text" formControlName="fechaIngreso" class="form-control" id="username" placeholder="Fecha de ingreso" name="username" required>
+            <div class="error" *ngIf="formulario.get('fechaIngreso')?.touched && formulario.get('fechaIngreso')?.hasError?.('havespace')">{{msg}}</div>
+
+          </div>
+          <div  class=" spaceBottom">
+            <input type="file" accept=".png"  (change)="escogerFoto($event)" />
+
+          </div>
+
+
+        </div>
+
+
+
+
+        <div style="display: grid;place-items: center; margin-bottom:3px ; ">
+          <button type="submit" class="btn btn-primary btn-block"  style="background-color: #207cca;" >Guardar</button>
+        </div>
+
+
+      </form>
+    </div>
+
+  </div>
+</div>
