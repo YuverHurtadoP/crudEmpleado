@@ -1,4 +1,4 @@
-import { Cargo } from "./cargo";
+import { Cargo } from "../../../cargo/dto/response/cargo";
 
 
 export class EmpleadoResponseDto {

@@ -5,10 +5,12 @@ import Swal from 'sweetalert2';
 import { EmpleadoResponseDto } from '../../dto/response/empleado-response-dto';
 import { MatIconModule } from '@angular/material/icon';
 import { Constantes } from 'src/app/utilidades/constantes';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EditarEmpleadoComponent } from '../editar-empleado/editar-empleado.component';
 @Component({
   selector: 'app-listar-empleado',
   standalone: true,
-  imports: [CommonModule,MatIconModule ],
+  imports: [CommonModule,MatIconModule,MatDialogModule ],
   templateUrl: './listar-empleado.component.html',
   styleUrls: ['./listar-empleado.component.css']
 })
@@ -21,13 +23,22 @@ export class ListarEmpleadoComponent implements OnInit{
 
 
 
-  constructor( servicioEmpleo:ServicioEmpleadoService){
+  constructor(
+    public dialog: MatDialog,
+    servicioEmpleo:ServicioEmpleadoService
+    ){
     this.servicioEmpleo = servicioEmpleo;
   }
   ngOnInit(): void {
     this.listadoEmpleado();
-    console.log(this.urlImagen)
+   this.actualizacionAutomatica()
 
+  }
+  actualizacionAutomatica(){
+    this.servicioEmpleo.obtenerEstadoGuardado().subscribe((estado) => {
+      this.listadoEmpleado();
+
+    });
   }
   listadoEmpleado(){
 
@@ -62,7 +73,8 @@ export class ListarEmpleadoComponent implements OnInit{
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminarlo'
+      confirmButtonText: 'Sí, eliminarlo',
+      cancelButtonText:"Cancelar"
     }).then((result) => {
       if (result.isConfirmed) {
 
@@ -89,5 +101,21 @@ export class ListarEmpleadoComponent implements OnInit{
       }
     });
   }
+
+  abrirModalFormularioEditar(
+    nombre:string,
+    cedula:number,
+    cargo:number,
+    fechaIngreso:Date,
+    foto:string,
+    id:number
+
+    ): void {
+
+    this.dialog.open(EditarEmpleadoComponent, { width: '500px',
+    data: { nombre,cedula,cargo,fechaIngreso,foto,id}
+  });
+  }
+
 
 }

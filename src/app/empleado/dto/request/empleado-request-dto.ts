@@ -1,4 +1,5 @@
 export class EmpleadoRequestDto {
+  id:number = 0;
   cedula: number = 0;
   nombre:string = "";
   foto:string = "";

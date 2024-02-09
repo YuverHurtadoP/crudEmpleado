@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header   text-white text-center" >
       <h4 class="mb-0">
-        <mat-icon style="color: white; font-size: 2rem;">how_to_reg</mat-icon> Formulario de Registro
+        <mat-icon style="color: white; font-size: 2rem;">how_to_reg</mat-icon> Formulario para Editar
       </h4>
     </div>
     <div class="card-body">
@@ -12,7 +12,6 @@
           <!--column 1-->
           <div class="spaceBottom">
             <select formControlName="cargo" class="form-select" aria-label="Default select example">
-              <option value="">---Seleccionar Cargo---</option>
 
               <option *ngFor="let item of listadoCargo" [value]="item.id">
                 {{item.nombre}}
@@ -23,9 +22,8 @@
          <!--column 2-->
 
           <div class="spaceBottom">
-            <input type="text" formControlName="cedula" class="form-control" id="document" placeholder="Nro. Documento" name="document" >
-            <div class="error" *ngIf="formulario.get('cedula')?.touched && formulario.get('cedula')?.hasError?.('havespace')">{{msg}}</div>
-            <div class="error" *ngIf="formulario.get('cedula')?.touched && formulario.get('cedula')?.hasError?.('pattern')">{{msg2}}</div>
+            <input readonly type="text" formControlName="cedula" class="form-control" id="document" placeholder="Nro. Documento" name="document" >
+
 
           </div>
         </div>
@@ -46,7 +44,10 @@
             <div class="error" *ngIf="formulario.get('fechaIngreso')?.touched && formulario.get('fechaIngreso')?.hasError?.('havespace')">{{msg}}</div>
 
           </div>
-          <div  class=" spaceBottom">
+          <div style="display: grid;place-items: center;">
+            <img src="{{foto}}" alt="">
+          </div>
+          <div  class=" spaceBottom" >
             <input type="file" accept=".png"  (change)="escogerFoto($event)" />
 
           </div>
@@ -58,7 +59,7 @@
 
 
         <div style="display: grid;place-items: center; margin-bottom:3px ; ">
-          <button (click)="guardar()" class="btn btn-primary btn-block"  style="background-color: #207cca;" >Guardar</button>
+          <button (click)="actualizar()" class="btn btn-primary btn-block"  style="background-color: #207cca;" >Guardar</button>
         </div>
 
 
