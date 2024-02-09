@@ -7,15 +7,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { Constantes } from 'src/app/utilidades/constantes';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditarEmpleadoComponent } from '../editar-empleado/editar-empleado.component';
+import { FormsModule } from '@angular/forms';
+import { Filtro } from 'src/app/utilidades/filtro';
+
 @Component({
   selector: 'app-listar-empleado',
   standalone: true,
-  imports: [CommonModule,MatIconModule,MatDialogModule ],
+  imports: [CommonModule,MatIconModule,MatDialogModule,FormsModule,MatDialogModule ],
   templateUrl: './listar-empleado.component.html',
-  styleUrls: ['./listar-empleado.component.css']
+  styleUrls: ['./listar-empleado.component.css'],
+  providers: [Filtro]
 })
 export class ListarEmpleadoComponent implements OnInit{
   private servicioEmpleo:ServicioEmpleadoService;
+
+  public busquedaNombre: string = '';
 
   urlImagen = Constantes.API_URL.URL + "Imagen/";
 
@@ -25,7 +31,8 @@ export class ListarEmpleadoComponent implements OnInit{
 
   constructor(
     public dialog: MatDialog,
-    servicioEmpleo:ServicioEmpleadoService
+    servicioEmpleo:ServicioEmpleadoService,
+    private filtroPipe: Filtro
     ){
     this.servicioEmpleo = servicioEmpleo;
   }
@@ -33,6 +40,10 @@ export class ListarEmpleadoComponent implements OnInit{
     this.listadoEmpleado();
    this.actualizacionAutomatica()
 
+  }
+
+  filtrarPorNombre(items: EmpleadoResponseDto[], searchText: string): EmpleadoResponseDto[] {
+    return this.filtroPipe.filterByName(items, searchText);
   }
   actualizacionAutomatica(){
     this.servicioEmpleo.obtenerEstadoGuardado().subscribe((estado) => {

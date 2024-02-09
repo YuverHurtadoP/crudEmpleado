@@ -1,11 +1,14 @@
 
-<div id="managerTask">
-  <h1 class="title" >LISTA DE EMPLEADOS</h1>
+<div id="managerTask" style="display: grid; grid-template-columns: 20% 1fr; place-items: center;width: 80% !important; margin: auto !important;">
 
+ <div  class="search">
+  <input class="form-control me-2"  type="text" [(ngModel)]="busquedaNombre" placeholder="Buscar por nombre" />
+
+ </div>
 
   <div class="scroll"  >
 
-    <div *ngFor="let item of listadoEmpleadoResponseDto" class="infoPersonaje ">
+    <div *ngFor="let item of filtrarPorNombre(listadoEmpleadoResponseDto, busquedaNombre)" class="infoPersonaje ">
       <div>
         <img src="{{urlImagen}}{{item.foto}}" alt="" class="imagen" />
       </div>
@@ -30,20 +33,6 @@
         </div>
 
       </div>
-
-
-
-
-
-          <!--<div style="display: inline-flex; margin: auto;">
-            <button (click)="delete(item.track.uri)" class="cerrar" style="display: inline-flex;" mat-button [mat-dialog-close]="true">	<mat-icon>cancel</mat-icon><h3>Borrar</h3></button>
-            <button  style="display: inline-flex;"class="save" mat-button (click)="openDialog(item.track.preview_url,item.track.name,item.track.album.name,item.track.album.images[0].url)"><mat-icon>visibility</mat-icon><h3>Ver</h3></button>
-
-          </div>-->
-
-
-
-
 
     </div>
   </div>

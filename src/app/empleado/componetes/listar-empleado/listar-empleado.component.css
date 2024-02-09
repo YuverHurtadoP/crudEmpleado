@@ -1,12 +1,11 @@
 #managerTask{
 
 
-
   overflow: none !important;
   display: grid;
   place-items: center;
   height: 100% !important;
-  width: 100% !important;
+  width: 100%!important;
 
 }
 .infoPersonaje{
@@ -15,6 +14,7 @@
   margin-left: 15px;
   padding-left: 30px;
   padding-top: 30px;
+
 
 
 
@@ -61,13 +61,7 @@
   cursor: pointer;
 
 }
-.title{
 
-  margin-top: 0px !important;
-  padding-top: 25px !important;
-  font-weight: 600;
-text-align: center;
-}
 .input {
   display: block;
   height: 32px;
@@ -89,13 +83,20 @@ text-align: center;
 strong{
   color: #207cca;
 }
-.scroll{
-  overflow-y:scroll;
-  max-height: 370px;
+.search{
+
   border-radius: 1.5em;
   border: solid 1px #207cca;
   box-shadow: 1px 4px 10px 1px #aaa;
-  width: 500px !important;
+padding: 10px;
+}
+.scroll{
+  overflow-y:scroll;
+  max-height: 60%;
+  border-radius: 1.5em;
+  border: solid 1px #207cca;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  width: 65%!important;
 
 
 }
